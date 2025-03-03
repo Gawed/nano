@@ -3,7 +3,7 @@ import serial
 import time
 
 # MQTT 配置
-MQTT_BROKER = "localhost"  # 如果你的 MQTT Broker 在树莓派上，使用 "localhost"
+MQTT_BROKER = "192.168.1.205"  # 如果你的 MQTT Broker 在树莓派上，使用 "localhost"
 MQTT_TOPIC = "buzzer"
 MQTT_PORT = 1883
 
