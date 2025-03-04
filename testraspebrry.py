@@ -1,7 +1,7 @@
 import smbus2
 import paho.mqtt.client as mqtt
 
-I2C_ADDR = 0x04  # Arduino Nano  I2C 
+I2C_ADDR = 0x08  # Arduino Nano  I2C 
 bus = smbus2.SMBus(1)  # Raspberry Pi I2C-1 
 
 # MQTT 
