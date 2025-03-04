@@ -1,13 +1,12 @@
 import smbus2
 import paho.mqtt.client as mqtt
 
-# I2C 设定
-I2C_ADDR = 0x08  # Arduino Nano 的 I2C 地址
-bus = smbus2.SMBus(1)  # Raspberry Pi I2C-1 端口
+I2C_ADDR = 0x08  # Arduino Nano  I2C 
+bus = smbus2.SMBus(1)  # Raspberry Pi I2C-1 
 
-# MQTT 设定
-MQTT_BROKER = "192.168.1.205"  # 替换为你的 MQTT 服务器地址
-MQTT_PORT = 1883  # MQTT 默认端口
+# MQTT 
+MQTT_BROKER = "192.168.1.205"  
+MQTT_PORT = 1883 
 MQTT_TOPIC = "buzzer/ON"
 
 def on_connect(client, userdata, flags, rc):
