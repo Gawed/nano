@@ -1,9 +1,10 @@
 import smbus
 bus = smbus.SMBus(1)
-address = 0x08  # 确保与Arduino代码中的地址一致
 
+# 方案1：使用7位地址（需库支持）
+address_7bit = 0x04
 try:
-    bus.write_byte(address, 0x00)  # 发送1字节数据
-    print("Write succeeded")
+    bus.write_byte(address_7bit, 0x00)  # smbus可能自动左移为8位地址
+    print("Success (7-bit)")
 except Exception as e:
-    print("Error:", e)  # 捕获超时或无应答错误
+    print("Error:", e)
