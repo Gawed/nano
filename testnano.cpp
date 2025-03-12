@@ -1,6 +1,6 @@
 #include <Wire.h>
 
-#define I2C_ADDRESS 0x04
+#define I2C_ADDRESS 0x08
 #define BUZZER_PIN 10
 
 volatile bool buzzerOn = false;  //  volatile pour I²C  signal
@@ -28,10 +28,10 @@ void receiveEvent(int numBytes) {
   while (Wire.available()) {
     char c = Wire.read();
     Serial.println(c);  
-    if (c == 'ON') {
+    if (c == 'O') {
       buzzerOn = true;
     }
-    else if (c == 'OFF'){
+    else if (c == 'F'){
       buzzerOn = false;
       Serial.println("Buzzer Deactivated!"); 
     }
