@@ -21,11 +21,16 @@ def on_message(client, userdata, msg):
     print(f"Received message: {payload}")
     if msg.topic == MQTT_TOPIC and payload == "ON":
         try:
-            bus.write_byte(I2C_ADDR, ord('O'))  #  ASCII 'O'  Arduino
-            print("Sent 'O' to Arduino via I2C")
+            bus.write_byte(I2C_ADDR, ord('ON'))  #  ASCII 'O'  Arduino
+            print("Sent 'ON' to Arduino via I2C")
         except Exception as e:
             print(f"Failed to send I2C message: {e}")
-
+    if msg.topic == MQTT_TOPIC and payload == "OFF":
+        try:
+            bus.write_byte(I2C_ADDR, ord('OFF'))  #  ASCII 'OFF'  Arduino
+            print("Sent 'OFF' to Arduino via I2C")
+        except Exception as e:
+            print(f"Failed to send I2C message: {e}")
 client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
