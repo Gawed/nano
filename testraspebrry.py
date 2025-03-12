@@ -19,7 +19,7 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     payload = msg.payload.decode().strip()
     print(f"Received message: {payload}")
-    if msg.topic == MQTT_TOPIC and payload == "O":
+    if msg.topic == MQTT_TOPIC and payload == "ON":
         try:
             bus.write_byte(I2C_ADDR, ord('O'))  #  ASCII 'O'  Arduino
             print("Sent 'O' to Arduino via I2C")
